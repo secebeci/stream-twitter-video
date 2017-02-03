@@ -1,0 +1,10 @@
+{% load activity_tags %}
+
+
+{% for activity in enriched_activity.activities %}
+    {% render_activity activity %}
+{% endfor %}
+
+{{ activity.actor_count }} user{{ activity.actor_count|pluralize }} {{ activity.verb }}ed you. <br>
+ 
+

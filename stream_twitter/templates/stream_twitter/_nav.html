@@ -1,0 +1,63 @@
+{% load hashtag_tags %}
+
+<header id="header" class="navbar navbar-inverse navbar-fixed-top header" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand navbar-logo" href="/">
+        <h1 class="navbar-logo-title">Stream Twitter</h1>
+      </a>
+      </div>
+    <div class="navbar-collapse collapse" id="header-collapse" style="height: 1px;">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/timeline/">Timeline</a>
+        </li>
+        <li>
+          <a href="/discover/">Discover</a>
+        </li>
+        <li>
+        <form method='GET' action='/search/'>
+          <input type='text' name='q' placeholder='Search' value='{{request.GET.q }}' />
+          <input type='submit' value='Search' />
+        </form>
+      </li>
+        {% if request.user.is_authenticated %}
+            <li class="dropdown" id="notification-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="notification-toggle">
+                    <i class="glyphicon glyphicon-inbox"></i>  <span class="badge notifications-badge text-danger" id="notifications_inner" style="display:none;">0</span><b class="caret"></b>
+                </a>
+                <ul id="notification-container" class="dropdown-menu">
+                                      <li><a href="/{{ request.user.id }}/notifications">{% show_notification request %}</a></li>
+
+                </ul>
+            </li> <!-- eklenen bos ufak eleman -->
+            <li class="dropdown{% if location == 'profile' %} active{% endif %}">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon"></i>  {{ request.user.username }}<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <!-- <li><a href="/user/{{ login_user }}">My Profile</a></li> -->
+                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                </ul>
+            </li>
+        {% else %}
+           <li>
+                <a href="/accounts/github/login/?process=login">
+                    <i class="icon icon-github"></i> Sign in with GitHub
+                </a>
+            </li>
+          <!--  <li><a href="{% url 'account_login' %}">Log in</a></li>
+            <li><a href="{% url 'account_signup' %}">Sign up</a></li>-->
+        {% endif %}
+        </ul>
+    </div>
+  </div>
+</header>
+
+<!-- -->

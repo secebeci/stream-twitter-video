@@ -1,0 +1,48 @@
+{% extends 'stream_twitter/_base.html' %}
+
+{% block nav %}
+  {% include "stream_twitter/_nav.html" %}
+{% endblock nav %}
+
+{% block content %}
+<div class="container">
+  {% if not request.user.is_authenticated %}
+    <div class="row signup">
+      <p>
+        <a href="/accounts/github/login/?process=login" role="button" class="btn btn-primary btn-lg"><i class="icon icon-github"></i> Sign in with GitHub</a>
+      </p>
+      <p>
+        <a href="{% url 'account_login' %}" role="button" class="btn btn-primary btn-lg">Sign in with username</a>
+      </p>
+    </div>
+  {% endif %}
+  <div class="row">
+    {% for tweet in tweets %}
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="home-tweet">
+             {% include "stream_twitter/_home.html" with tweet=tweet %}
+       
+      </div> 
+    </div>
+    {% if forloop.counter|divisibleby:'4' %}
+    <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+    {% elif forloop.counter|divisibleby:'2' %}
+    <div class="clearfix visible-sm-block"></div>
+    {% endif %}
+  {% endfor %}
+  </div>
+
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+$('div.home-users').hide().each(function(index) {
+  $(this).delay(250 * index).fadeIn(1600);
+});
+</script> 
+{% endblock script %}
+
+
+

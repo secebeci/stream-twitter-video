@@ -1,0 +1,55 @@
+ 
+.signup, .login {
+
+	width: 350px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -175px;
+
+}
+
+button[type="submit"] {
+	background: #2C9BE6;
+	border: 0;
+	width: 350px;
+	height: 40px;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+}
+button[type="submit"]:hover{
+
+background: #227AB5;
+
+}
+
+label {
+	display: none;
+	position: absolute;
+	margin-right: 10px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: transparent;
+	content: "";
+	transition: all .3s ease-in-out;
+	cursor: pointer;
+	border: 3px solid #435160
+}
+
+/*label[for="id_remember"]{
+	display: block;
+}*/
+#id_login, #id_password, #id_username, #id_email, #id_password1{
+
+	width: 350px;
+	padding: 20px 0px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #435160;
+    outline: none;
+    color: black;
+    font-size: 16px
+}

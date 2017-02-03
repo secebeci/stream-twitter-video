@@ -1,0 +1,26 @@
+<form method="post" class="form-group" enctype="multipart/form-data">{% csrf_token %}
+  <div class="row">
+
+   <div class="col-xs-8">
+      <input id="id_text" class="form-control" name="text" type="text" placeholder="What's on your mind?">
+    </div>
+    <div class="col-xs-8">
+      <input id="id_video" class="form-control" name="video" type="text" placeholder="What's on your mind?">
+    </div>
+    <div class="col-xs-8">
+      <input id="id_video" class="form-control" name="slide" type="text" placeholder="What's on your mind?">
+    </div>
+
+  <div class="col-xs-8">
+      <input id="id_myfile" class="form-control" name="myfile" type="file" placeholder="What's on your mind?">
+    </div> 
+  <div class="col-xs-4">
+    <input formmethod="post" type="submit" value="Create" class="btn btn-primary"/>
+  </div>
+
+  </div>
+</form> 
+
+
+
+

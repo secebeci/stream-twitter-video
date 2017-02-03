@@ -1,0 +1,30 @@
+{% load socialaccount %}
+{% load activity_tags %}
+{% load embed_video_tags %}
+{% load filters %}
+
+<div class="home-tweet">
+  <div class="user-picture">
+    {% if tweet.video %}
+
+    {% video tweet.video as my_video %}
+    {% video my_video '200x200' %}
+    {% endvideo %}      
+
+    {% elif tweet.slide %}
+    {% video tweet.slide as my_slide %}
+    {% video my_slide '200x200' %}
+    {% endvideo %}
+
+    {% endif %}
+  </div>
+  <div class="user-basic-info">
+     <img src="{{ tweet.user.userprofile.picture.url }}" alt="mini-profile-picture" height="30" width="30">
+    <a href="/user/{{ user.username }}/"><span class="user-basic-info-id">@{{ tweet.user.username }}</span></a>
+  </div> 
+  <div class="user-description">
+    {% autoescape off %}
+        {{ tweet|parse_tweet_text }}
+      {% endautoescape %}
+  </div> 
+</div>

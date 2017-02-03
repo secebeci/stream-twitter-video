@@ -1,0 +1,9 @@
+{% load activity_tags %}
+{% load filters %}
+{% load hashtag_tags %}
+
+{% for enriched_activity in enriched_activities %}
+    {% render_activity enriched_activity %}
+{% endfor %}
+
+

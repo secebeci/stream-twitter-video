@@ -1,0 +1,41 @@
+<div class="hashtags">
+<div class="row">
+  <h3>Trending Hashtags:</h3>
+  {% for hashtag in hashtags %}
+  <div class="col-xs-12">
+    <a class="hashtag" href="/hashtag/{{hashtag.name}}/">#{{hashtag.name}}</a>
+
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+
+{% load activity_tags %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="search-title">
+        <h2>You searched for <span class="hashtag_name">
+          #{{ hashtag_name }}
+        </span>
+        :</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    {% for i in activities %}
+      <div class="col-md-6">
+        {% render_activity i %}
+      </div>
+      {% if forloop.counter|divisibleby:'2' %}
+      <div class="clearfix visible-md-block visible-lg-block"></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
