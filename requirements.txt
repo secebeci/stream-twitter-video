@@ -21,7 +21,7 @@ emencia-django-slideshows==1.0.1
 groupdocs-python3==2.6.0
 gunicorn==19.2.1
 httpsig==1.1.2
-ipython==2.4.1
+ipython==7.16.3
 oauthlib==2.0.0
 PasteDeploy==1.5.2
 pep8==1.7.0
