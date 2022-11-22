@@ -25,7 +25,7 @@ ipython==2.4.1
 oauthlib==2.0.0
 PasteDeploy==1.5.2
 pep8==1.7.0
-Pillow==2.7.0
+Pillow==9.3.0
 psycopg2==2.6.2
 pycrypto==2.6.1
 pyelasticsearch==0.5
