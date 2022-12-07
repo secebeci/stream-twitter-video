@@ -1,6 +1,6 @@
 autopep8==1.2.4
 beautifulsoup4==4.5.1
-certifi==2017.1.23
+certifi==2022.12.7
 defusedxml==0.4.1
 dj-database-url==0.4.1
 Django==1.9.7
